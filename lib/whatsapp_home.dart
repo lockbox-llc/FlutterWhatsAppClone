@@ -4,6 +4,7 @@ import 'package:flutterwhatsapp/pages/call_screen.dart';
 import 'package:flutterwhatsapp/pages/camera_screen.dart';
 import 'package:flutterwhatsapp/pages/chat_screen.dart';
 import 'package:flutterwhatsapp/pages/status_screen.dart';
+import 'package:flutterwhatsapp/pages/secure_screen.dart';
 
 class WhatsAppHome extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -22,7 +23,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
   void initState() {
     super.initState();
 
-    _tabController = TabController(vsync: this, initialIndex: 1, length: 4);
+    _tabController = TabController(vsync: this, initialIndex: 1, length: 5);
     _tabController.addListener(() {
       if (_tabController.index == 1) {
         showFab = true;
@@ -51,6 +52,9 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
             Tab(
               text: "CALLS",
             ),
+            Tab(
+              text: "SECURE",
+            ),
           ],
         ),
         actions: <Widget>[
@@ -68,6 +72,7 @@ class _WhatsAppHomeState extends State<WhatsAppHome>
           ChatScreen(),
           StatusScreen(),
           CallsScreen(),
+          SecureScreen(),
         ],
       ),
       floatingActionButton: showFab
